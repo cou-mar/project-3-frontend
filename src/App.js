@@ -7,18 +7,60 @@ import ProfilePage from './pages/ProfilePage';
 import FavoritesPage from './pages/FavoritesPage';
 import EventsPage from './pages/EventsPage';
 import EventDetailsPage from './pages/EventDetailsPage';
+import IsAnon from './components/IsAnon';
+import IsPrivate from './components/IsPrivate';
+import CreateEventPage from './pages/CreateEventPage';
+import { AuthContext } from './context/auth.context';
+import { useContext } from 'react';
 
 function App() {
+
+  const { logOutUser } = useContext(AuthContext)
+
+  let token = localStorage.getItem('authToken')
+
   return (
     <div className="App">
+      {
+      token ?  <button onClick={logOutUser}>Logout</button> : null
+      }
+
       <Routes>
         <Route path='/' element={<HomePage/>} />
-        <Route path='/signup' element={<SignupPage/>} />
-        <Route path='/login' element={<LoginPage/>} />
-        <Route path='/profile' element={<ProfilePage/>} />
-        <Route path='/my-events' element={<FavoritesPage/>} />
-        <Route path='/see-events' element={<EventsPage/>} />
-        <Route path='/see-event/:eventId' element={<EventDetailsPage/>} />
+        <Route path='/signup' element={
+          <IsAnon>
+            <SignupPage/>
+          </IsAnon>
+        } />
+        <Route path='/login' element={
+          <IsAnon>
+            <LoginPage/>
+          </IsAnon>
+        } />
+        <Route path='/profile' element={
+          <IsPrivate>
+            <ProfilePage/>
+          </IsPrivate>
+        } />
+        <Route path='/my-events' element={
+          <IsPrivate>
+            <FavoritesPage/>
+          </IsPrivate>
+        } />
+        <Route path='/create-event' element={
+            <CreateEventPage />
+        }>
+        </Route>
+        <Route path='/see-events' element={
+          <IsPrivate>
+            <EventsPage/>
+          </IsPrivate>
+        } />
+        <Route path='/see-event/:eventId' element={
+          <IsPrivate>
+            <EventDetailsPage/>
+          </IsPrivate>
+        } />
       </Routes>
     </div>
   );

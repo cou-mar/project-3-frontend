@@ -33,10 +33,10 @@ const SignupPage = () => {
     }
 
     return (
-        <div className="signupContainer">
+        <div className="authContainer">
             <h1>Sign Up</h1>
 
-            <div className="signupForm">
+            <div className="authForm">
                 <form onSubmit={onFormSubmit}>
                     <label>Name</label><br />
                     <input value={state.name} name="name" onChange={updateState} />

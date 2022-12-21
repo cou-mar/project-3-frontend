@@ -16,13 +16,17 @@ function AuthProviderWrapper(props){
     const authenticateUser = () => {
         const storedToken = localStorage.getItem('authToken');
 
+        // console.log("This is the token:", storedToken)
+
         if(storedToken){
+            // console.log("Made it to line 20")
             axios.get(`${API_URL}/auth/verify`, {headers: {Authorization: `Bearer ${storedToken}`}}
             )
             .then((response) => {
+                // console.log("Made it to line 24")
                 const user = response.data;
                 setIsLoggedIn(true);
-                setIsLoading(true);
+                setIsLoading(false);
                 setUser(user);
             })
             .catch((error) => {
