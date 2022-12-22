@@ -2,7 +2,9 @@
   margin: 0;
 }
 
-
+/* .logoutBttn{
+  float: right;
+} */
 
 .homeTitle{
   text-align: center;
@@ -89,6 +91,22 @@
 .profileBttnContainer button{
   margin: 20px;
   padding: 40px;
+}
+
+.createContainer{
+  text-align: center;
+  line-height: 2;
+}
+
+.updateContainer{
+  text-align: center;
+  line-height: 2;
+}
+
+.detailsContainer{
+  text-align: center;
+  margin: 70px;
+  line-height: 2;
 }
 
 /* .App {

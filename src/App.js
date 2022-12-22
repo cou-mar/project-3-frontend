@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import FavoritesPage from './pages/FavoritesPage';
 import EventsPage from './pages/EventsPage';
 import EventDetailsPage from './pages/EventDetailsPage';
+import UpdateEventPage from './pages/UpdateEventPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CreateEventPage from './pages/CreateEventPage';
@@ -22,7 +23,7 @@ function App() {
   return (
     <div className="App">
       {
-      token ?  <button onClick={logOutUser}>Logout</button> : null
+      token ?  <button onClick={logOutUser} className="logoutBttn">Logout</button> : null
       }
 
       <Routes>
@@ -61,6 +62,12 @@ function App() {
             <EventDetailsPage/>
           </IsPrivate>
         } />
+        <Route path='/see-event/:eventId/edit' element={
+          <IsPrivate>
+            <UpdateEventPage />
+          </IsPrivate>
+        } />
+
       </Routes>
     </div>
   );

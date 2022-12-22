@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from '../context/auth.context';
 
-const CreateEventPage = () => {
+const UpdateEventPage = () => {
 
     const navigate = useNavigate();
+
+    const {authenticateUser} = useContext(AuthContext);
+
+    const { eventId } = useParams();
 
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
@@ -32,9 +37,22 @@ const CreateEventPage = () => {
 
     const updateDescription = (e) => setDescription(e.target.value);
 
+    useEffect(() => {
+        axios.get(`http://localhost:3001/user/see-event/${eventId}`)
+            .then(axiosResponse => {
+                console.log(axiosResponse.data);
+                setTitle(axiosResponse.data.title);
+                setDate(axiosResponse.data.date);
+                setAddress(axiosResponse.data.address);
+                setLocation(axiosResponse.data.location);
+                setDescription(axiosResponse.data.description);
+            })
+            .catch(err => console.log(err));
+    }, [eventId]);
+
     const handleFormSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:3001/user/create-event', {
+        axios.put(`http://localhost:3001/user/see-event/${eventId}/edit`, {
             title,
             date,
             address,
@@ -48,18 +66,30 @@ const CreateEventPage = () => {
         .catch(err => console.log(err))
     };
 
+    const deleteFunction = (singleEvent) => {
+        if(window.confirm('Are you sure you want to delete this event?') === true){ 
+        axios.delete(`http://localhost:3001/user/see-event/${eventId}/delete`)
+            .then(axiosResponse => {
+                navigate('/profile');
+            })
+            .catch(err => console.log(err));
+        } else {
+            return
+        }
+    };
+
     return (
-        <div className="createContainer">
-            <h1>Create New Event</h1>
+        <div className="updateContainer">
+            <h1>Update Event</h1>
 
             <form 
             onSubmit={handleFormSubmit}
             >
                 <label htmlFor="title">Title</label><br />
-                <input placeholder="Race for the Cure" type="text" name="title" onChange={updateTitle} />
+                <input placeholder="Race for the Cure" type="text" name="title" value={title} onChange={updateTitle} />
             <br />
                 <label htmlFor="date">Date</label><br />
-                <input placeholder="11/23/23" type="text" name="date" onChange={updateDate} />
+                <input placeholder="11/23/23" type="text" name="date" value={date} onChange={updateDate} />
             <br />
                 <label htmlFor="street">Street</label><br />
                 <input placeholder="123 Street" type="text" name="street" onChange={updateAddress} value={address.street}/>
@@ -81,13 +111,16 @@ const CreateEventPage = () => {
             <br />
                 <label htmlFor="description">Description</label><br />
                 {/* <input placeholder="Half marathon to raise funds for breast cancer awareness." type="text" name="description" onChange={updateDescription} /> */}
-                <textarea placeholder="Half marathon to raise funds for breast cancer awareness." name="description" id="description" onChange={updateDescription} cols="30" rows="5"></textarea>
+                <textarea placeholder="Half marathon to raise funds for breast cancer awareness." name="description" id="description" onChange={updateDescription} value={description} cols="30" rows="5"></textarea>
             <br />
-                <button>Create Event</button>
+                <button>Update Event</button>
+                <Link>
+                    <button onClick={deleteFunction}>Delete Event</button>
+                </Link>
             </form>
             
         </div>
     );
 }
 
-export default CreateEventPage;
+export default UpdateEventPage;
