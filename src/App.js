@@ -25,7 +25,7 @@ function App() {
       {
       token ?  <button onClick={logOutUser} className="logoutBttn">Logout</button> : null
       }
-
+{/* navbar hewre */}
       <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/signup' element={
@@ -69,6 +69,8 @@ function App() {
         } />
 
       </Routes>
+
+      {/* gooter here */}
     </div>
   );
 }
