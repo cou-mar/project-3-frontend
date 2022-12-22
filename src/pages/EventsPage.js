@@ -10,7 +10,7 @@ const EventsPage = () => {
   const [events, setEvents] = useState(null);
 
   let myIcon = L.icon({
-    iconUrl: require("../mapMarker.jpg"),
+    iconUrl: require("../mapMarker.png"),
     iconSize: [36, 36],
     iconAnchor: [18, 18],
   });
@@ -87,8 +87,8 @@ const EventsPage = () => {
         events.foundEventsArray.map((singleEvent) => {
           return (
             <div>
-              <h1>{singleEvent.title}</h1>
-              <h2>{singleEvent.date}</h2>
+              <h2>{singleEvent.title}</h2>
+              <h3>{singleEvent.date}</h3>
               <h3>
                 {singleEvent.address.street}, {singleEvent.address.city},{" "}
                 {singleEvent.address.state} {singleEvent.address.zipcode}
@@ -101,8 +101,8 @@ const EventsPage = () => {
         events.komenArray.data.events.results.map((singleEvent) => {
           return (
             <div>
-              <h1>{singleEvent.name}</h1>
-              <h2>{singleEvent.startDate}</h2>
+              <h2>{singleEvent.name}</h2>
+              <h3>{singleEvent.startDate}</h3>
               <h3>
                 {singleEvent.city}, {singleEvent.zipcode}
               </h3>
