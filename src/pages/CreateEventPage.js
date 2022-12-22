@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { AuthContext } from "../context/auth.context";
+
 const CreateEventPage = () => {
+
+    const { user } = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -39,7 +43,8 @@ const CreateEventPage = () => {
             date,
             address,
             location,
-            description
+            description,
+            owner: user._id
         })
         .then(axiosResponse => {
             console.log(axiosResponse.data);
