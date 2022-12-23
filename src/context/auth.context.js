@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
 
-const API_URL='http://localhost:3001';
+const API_URL= process.env.REACT_APP_BACKEND_URL
 const AuthContext = createContext();
 
 function AuthProviderWrapper(props){

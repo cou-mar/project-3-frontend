@@ -20,7 +20,7 @@ const SignupPage = () => {
     const onFormSubmit = e => {
         e.preventDefault();
         console.log(state);
-        axios.post('http://localhost:3001/auth/signup', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signup`, {
             name: state.name,
             email: state.email,
             password: state.password

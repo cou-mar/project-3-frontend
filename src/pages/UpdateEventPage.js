@@ -38,7 +38,7 @@ const UpdateEventPage = () => {
     const updateDescription = (e) => setDescription(e.target.value);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/user/see-event/${eventId}`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/see-event/${eventId}`)
             .then(axiosResponse => {
                 console.log(axiosResponse.data);
                 setTitle(axiosResponse.data.title);
@@ -52,7 +52,7 @@ const UpdateEventPage = () => {
 
     const handleFormSubmit = e => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/user/see-event/${eventId}/edit`, {
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/user/see-event/${eventId}/edit`, {
             title,
             date,
             address,
@@ -68,7 +68,7 @@ const UpdateEventPage = () => {
 
     const deleteFunction = (singleEvent) => {
         if(window.confirm('Are you sure you want to delete this event?') === true){ 
-        axios.delete(`http://localhost:3001/user/see-event/${eventId}/delete`, {
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/user/see-event/${eventId}/delete`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('authToken')}`
             }
@@ -97,7 +97,7 @@ const UpdateEventPage = () => {
                 <input placeholder="11/23/23" type="text" name="date" value={date} onChange={updateDate} />
             <br />
                 <label htmlFor="street">Street</label><br />
-                <input placeholder="123 Street" type="text" name="street" onChange={updateAddress} value={address.street}/>
+                <input placeholder="1123 Street" type="text" name="street" onChange={updateAddress} value={address.street}/>
             <br />
                 <label htmlFor="city">City</label><br />
                 <input placeholder="Miami" type="text" name="city" onChange={updateAddress} value={address.city} />

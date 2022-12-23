@@ -27,7 +27,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/user/see-events")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/user/see-events`)
       .then((axiosResponse) => {
         console.log(axiosResponse.data);
         setEvents(axiosResponse.data);
@@ -69,7 +69,7 @@ const EventsPage = () => {
                       <p>{spot.city}, {spot.state} {spot.zipcode}</p>
                       <p>{spot.facebookGroup}</p>
                       <button onClick={()=> {
-                                axios.post('http://localhost:3001/user/create-event', {
+                                axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/create-event`, {
                                         title: spot.name,
                                         date: spot.startDate,
                                         address: {

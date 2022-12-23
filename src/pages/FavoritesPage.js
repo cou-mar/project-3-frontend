@@ -6,7 +6,7 @@ const FavoritesPage = () => {
     const [faves, setFaves] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/user/my-events', {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/my-events`, {
             headers:    {
                 authorization: `Bearer ${localStorage.getItem('authToken')}`
             }
@@ -19,7 +19,7 @@ const FavoritesPage = () => {
     }, []);
 
     const deleteFav = (id) => {
-        axios.get(`http://localhost:3001/user/favorite/${id}/delete`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/favorite/${id}/delete`)
         .then((deleted) => {
             let newFavsArray = faves.filter((fav) => fav._id !== deleted.data._id)
             setFaves(newFavsArray)

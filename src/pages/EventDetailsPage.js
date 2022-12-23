@@ -12,7 +12,7 @@ const EventDetailsPage = () => {
 
     console.log(eventId);
     useEffect(() => {
-        axios.get(`http://localhost:3001/user/see-event/${eventId}`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/see-event/${eventId}`)
         .then(axiosResponse => {
             console.log(axiosResponse.data);
             setEvent(axiosResponse.data)
@@ -22,7 +22,7 @@ const EventDetailsPage = () => {
 
     const addToFave = e => {
         e.preventDefault();
-        axios.get(`http://localhost:3001/user/my-events/${eventId}`, {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/my-events/${eventId}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('authToken')}`
             }

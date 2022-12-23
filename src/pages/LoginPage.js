@@ -22,7 +22,7 @@ const LoginPage = () => {
     const onFormSubmit = e => {
         e.preventDefault();
         console.log(state);
-        axios.post('http://localhost:3001/auth/login', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
             email: state.email,
             password: state.password
         })

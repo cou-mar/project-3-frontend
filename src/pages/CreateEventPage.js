@@ -38,7 +38,7 @@ const CreateEventPage = () => {
 
     const handleFormSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:3001/user/create-event', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/create-event`, {
             title,
             date,
             address,
