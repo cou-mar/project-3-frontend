@@ -35,19 +35,36 @@ const LoginPage = () => {
         .catch(err => console.log(err));
     }
 
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+        setPasswordShown(!passwordShown);
+    };
+
     return (
         <div className="authContainer">
             <h1>Log In</h1>
 
             <div className="authForm">
-                <form onSubmit={onFormSubmit}>
-                    <label>Email</label><br />
+                <form onSubmit={onFormSubmit} className="authBttn">
+                    {/* <label>Email</label><br /> */}
+                    <i class="fa fa-envelope icon"></i>
                     <input value={state.email} name="email" onChange={updateState} />
                 <br />
-                    <label>Password</label><br />
+                    {/* <label>Password</label><br />
                     <input value={state.password} name="password"  onChange={updateState} />
                 <br />
-                <br />
+                <br /> */}
+
+                    <i className="fa fa-lock icon "></i>
+                <input value={state.password} 
+
+                type={passwordShown ? "text" : "password"} 
+                
+                name="password" onChange={updateState} />
+                <i class="far fa-eye" id="togglePassword" onClick={togglePassword}></i>
+
                     <button>Submit</button>
                 </form>
             </div>

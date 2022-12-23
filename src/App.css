@@ -6,6 +6,7 @@
 
 .welcomeUser{
   font-style: oblique;
+  margin-left: 15px;
 }
 
 .footer{
@@ -81,19 +82,19 @@ body::after{
   /* text-align: center; */
   overflow: hidden;
   height: 400px;
-  width: 800px;
+  width: 600px;
   margin: 0 auto;
 }
 
 .slide-wrapper {
-  width: 2912px;
+  width: 3000px;
   animation: slide 18s ease infinite;
 }
 
 .slide {
   float: left;
   height: 670px;
-  width: 376px;
+  width: 600px;
 }
 
 /* .slide:nth-child(1) {
@@ -118,14 +119,31 @@ body::after{
   font-size: 10em;
 } */
 
+.slide-number {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide-number img {
+  /* align-self: center; */
+  height: 40vh;
+  width: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
 @keyframes slide {
-  20% {margin-left: 0px;}
-  30% {margin-left: -728px;}
-  50% {margin-left: -728px;}
-  60% {margin-left: -1456px;}
-  70% {margin-left: -1456px;}
-  80% {margin-left: -2184px;}
-  90% {margin-left: -2184px;}
+  10% {margin-left: 0px;}
+  20% {margin-left: -600px;}
+  30% {margin-left: -600px;}
+  40% {margin-left: -1200px;}
+  50% {margin-left: -1200px;}
+  60% {margin-left: -1800px;}
+  70% {margin-left: -1800px;}
+  80% {margin-left: -2400px;}
+  90% {margin-left: -2400px;}
 }
 
 .homeTitle{
@@ -185,9 +203,14 @@ body::after{
   padding: 15px 25px;
   margin: 20px;
   border-radius: 5px;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+}
+
+.authBttn{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profileContainer{
@@ -269,6 +292,12 @@ input[type=text]:focus{
   line-height: 2;
 }
 
+/* .events-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
 .mapContainer{
   margin-left: auto;
   margin-right: auto;
@@ -276,22 +305,39 @@ input[type=text]:focus{
 }
 
 .eventsContainer{
+
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  flex-wrap:wrap;
-  width:100px;
-  float: left;
+  flex-flow: wrap;
+  columns: 5 auto
+  /* width:100px;
+  float: left; */
   /* margin-right: 20px; */
 }
 
-.eventsBox{
+/* .eventsBox {
   display: flex;
   flex-direction: column;
   width: 400px;
   inline-size: 100px;
   overflow-wrap: normal;
+  word-wrap: normal;
   margin: 50px;
+} */
+
+.data {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax((100px, auto));
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  /* columns: 5 auto */
+  
+  /* flex: 1; */
+  /* flex-flow: wrap; */
 }
 
 .memoriamContainer{

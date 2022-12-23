@@ -88,7 +88,7 @@ const CreateEventPage = () => {
                 {/* <input placeholder="Half marathon to raise funds for breast cancer awareness." type="text" name="description" onChange={updateDescription} /> */}
                 <textarea placeholder="Half marathon to raise funds for breast cancer awareness." name="description" id="description" onChange={updateDescription} cols="30" rows="8"></textarea>
             <br />
-                <button>Create Event</button>
+                <button className="authBttn">Create Event</button>
             </form>
             
         </div>

@@ -6,12 +6,13 @@ function Navbar(){
     const {user, isLoggedIn, logOutUser} = useContext(AuthContext);
 
     return(
-        
-        <nav className="navbar">
-
+        <div>
             {isLoggedIn && (
                 <div className="welcomeUser">Hi, {user.name}!</div>
             )}
+
+        <nav className="navbar">
+
 
             <Link to='/' style={{textDecoration: 'none'}}>
                 <button className="buttonText">Home</button>
@@ -51,6 +52,7 @@ function Navbar(){
 <br />
 
         </nav>
+    </div>
     )
 }
 

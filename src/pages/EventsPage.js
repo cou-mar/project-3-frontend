@@ -36,7 +36,7 @@ const EventsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="events-page">
 
 
       <div>
@@ -109,19 +109,19 @@ const EventsPage = () => {
         </MapContainer>
       </div>
 
-<div>
+<div className="data">
       {events &&
         events.foundEventsArray.map((singleEvent) => {
           return (
-            <span className="eventsContainer">
-              <span className="eventsBox"><h2>{singleEvent.title}</h2></span>
-              <span className="eventsBox"><h3>{singleEvent.date}</h3></span>
-              <span className="eventsBox"><h3>
+            <div className="eventsContainer">
+              <div className="eventsBox"><h2>{singleEvent.title}</h2></div>
+              <div className="eventsBox"><h3>{singleEvent.date}</h3></div>
+              <div className="eventsBox"><h3>
                 {singleEvent.address.street}, {singleEvent.address.city},{" "}
                 {singleEvent.address.state} {singleEvent.address.zipcode}
-              </h3></span>
-              <span className="eventsBox"><p>{singleEvent.description}</p></span>
-            </span>
+              </h3></div>
+              <div className="eventsBox"><p>{singleEvent.description}</p></div>
+            </div>
           );
         })}
       {events &&

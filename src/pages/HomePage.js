@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import pic1 from '../pic1.jpg';
 import pic2 from '../pic2.png';
 import pic3 from '../pic3.png';
-// import pic4 from '../pic4.jpg';
+import pic4 from '../pic4.jpg';
 import pic5 from '../pic5.jpg';
 
 const HomePage = () => {
@@ -30,27 +30,49 @@ const HomePage = () => {
                     <div class="slide-wrapper">
                         <div class="slide">
                             <span class="slide-number">
-                                <img src={pic1} alt="carousel1" style={{width:'600px', height:'300px'}} />
+                                <img src={pic1} alt="carousel1" 
+                                
+                                // style={{width:'600px', height:'300px'}} 
+
+                                />
                             </span>
                         </div>
                         <div class="slide">
                             <span class="slide-number">
-                                <img src={pic2} alt="carousel2" style={{width:'600px', height:'300px'}} />
+                                <img src={pic2} alt="carousel2" 
+                                
+                                // style={{width:'600px', height:'300px'}}
+                                 />
                             </span>
                         </div>
                         <div class="slide">
                             <span class="slide-number">
-                                <img src={pic3} alt="carousel3" style={{width:'600px', height:'300px'}} />
+                                <img src={pic3} alt="carousel3" 
+                                
+                                // style={{width:'600px', height:'300px'}} 
+
+                                />
                             </span>
                         </div>
-                        {/* <div class="slide">
-                            <span class="slide-number">
-                                <img src={pic4} alt="carousel4" style={{width:'600px', height:'300px'}} />
-                            </span>
-                        </div> */}
                         <div class="slide">
                             <span class="slide-number">
-                                <img src={pic5} alt="carousel5" style={{width:'600px', height:'300px'}} />
+                                <img src={pic4} alt="carousel4" 
+                                
+                                // style={{width:'600px', height:'300px'}} 
+
+
+
+                                />
+                            </span>
+                        </div>
+                        <div class="slide">
+                            <span class="slide-number">
+                                <img src={pic5} alt="carousel5" 
+                                
+                                // style=
+                                // {{width:'600px', height:'300px'}}
+
+                                 />
                             </span>
                         </div>
                     </div>
