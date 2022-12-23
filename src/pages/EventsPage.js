@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import L from "leaflet";
 import { MapContainer } from "react-leaflet";
@@ -7,6 +8,9 @@ import { TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const EventsPage = () => {
+
+    const navigate = useNavigate()
+
   const [events, setEvents] = useState(null);
 
   let myIcon = L.icon({
@@ -59,12 +63,34 @@ const EventsPage = () => {
               point[0] && (
                 <Marker icon={myIcon} position={point} key={spot["_id"]}>
                   <Popup>
-                    <span>
+                    <div>
                       <h3>{spot.name}</h3>
                       <p>{spot.street}</p>
                       <p>{spot.city}, {spot.state} {spot.zipcode}</p>
                       <p>{spot.facebookGroup}</p>
-                    </span>
+                      <button onClick={()=> {
+                                axios.post('http://localhost:3001/user/create-event', {
+                                        title: spot.name,
+                                        date: spot.startDate,
+                                        address: {
+                                            street: spot.street,
+                                            city: spot.city,
+                                            state: spot.state,
+                                            zipcode: spot.zipcode
+                                            },
+                                        location: {
+                                            latitude: Number(spot.lat),
+                                            longitude: Number(spot.lng)
+                                        }
+
+                                      })
+                                      .then((newEvent) => {
+                                        navigate(`/see-event/${newEvent.data._id}`)
+                                        console.log("Added event", newEvent.data)
+                                      })
+                                      .catch((err) => {console.log("Error adding event:", err)})
+                      }}>Event Details</button>
+                    </div>
                     {/* <br />
                     <span>
                       <Link to={`/${spot._id}/details`}>Details</Link>

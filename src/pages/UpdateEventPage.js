@@ -68,7 +68,12 @@ const UpdateEventPage = () => {
 
     const deleteFunction = (singleEvent) => {
         if(window.confirm('Are you sure you want to delete this event?') === true){ 
-        axios.delete(`http://localhost:3001/user/see-event/${eventId}/delete`)
+        axios.delete(`http://localhost:3001/user/see-event/${eventId}/delete`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('authToken')}`
+            }
+        }
+        )
             .then(axiosResponse => {
                 navigate('/profile');
             })

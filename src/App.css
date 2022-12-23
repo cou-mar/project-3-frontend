@@ -117,6 +117,12 @@
   margin-right: auto;
 } */
 
+.memoriamContainer{
+  text-align: center;
+  margin: 50px;
+  line-height: 2;
+}
+
 /* .App {
   text-align: center;
 }

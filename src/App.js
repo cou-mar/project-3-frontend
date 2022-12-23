@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import SignupPage from './pages/SignupPage';
@@ -11,6 +12,7 @@ import UpdateEventPage from './pages/UpdateEventPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CreateEventPage from './pages/CreateEventPage';
+import MemoriamPage from './pages/MemoriamPage';
 import { AuthContext } from './context/auth.context';
 import { useContext } from 'react';
 
@@ -25,7 +27,9 @@ function App() {
       {
       token ?  <button onClick={logOutUser} className="logoutBttn">Logout</button> : null
       }
-{/* navbar hewre */}
+
+      <Navbar />
+
       <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/signup' element={
@@ -49,7 +53,9 @@ function App() {
           </IsPrivate>
         } />
         <Route path='/create-event' element={
+          <IsPrivate>
             <CreateEventPage />
+          </IsPrivate>
         }>
         </Route>
         <Route path='/see-events' element={
@@ -67,10 +73,16 @@ function App() {
             <UpdateEventPage />
           </IsPrivate>
         } />
+        <Route path='/in-memoriam' element={
+          <IsPrivate>
+            <MemoriamPage />
+          </IsPrivate>
+        } />
 
       </Routes>
 
-      {/* gooter here */}
+      {/* footer here */}
+
     </div>
   );
 }
