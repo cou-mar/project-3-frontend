@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       {
-      token ?  <button onClick={logOutUser} className="logoutBttn">Logout</button> : null
+      token ?  <button onClick={logOutUser} className="logoutBttn">Log Out</button> : null
       }
 
       <Navbar />

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import pic4 from '../pic4.jpg';
+import pic5 from '../pic5.jpg';
 
 const ProfilePage = () => {
     return (
@@ -7,7 +7,7 @@ const ProfilePage = () => {
 
             <div className="profileSlideshow">
                 {/* slideshow: pics of your saved events */}
-                <img src={pic4} alt="carousel4" style={{width:'600px', height:'300px', borderRadius:'10%'}} />
+                <img src={pic5} alt="carousel4" style={{width:'600px', height:'300px', borderRadius:'10%'}} />
             </div>
 
             <div className="profileBttnContainer">

@@ -7,7 +7,7 @@ import pic5 from '../pic5.jpg';
 
 const HomePage = () => {
     return (
-        <div>
+        <div id="home">
             <div className="homeTitle">
                 <h1>Rally for Pink</h1>
                 <br />
@@ -15,7 +15,7 @@ const HomePage = () => {
             </div>
             <div className="homeContainer">
                 <div>
-                    <h3>
+                    <h3 className="home-side-divs">
                         As a verb, "rally" means to recover in health, spirits, or poise. <br /> <br />
                         As a noun, it's a mass meeting of people to show support for a cause. <br /> <br />
                         Get your rally on in every sense of the word. Use this site to search for events near you. If you don't find it, create it and share it so others can attend too.<br /> <br />
@@ -29,57 +29,86 @@ const HomePage = () => {
                 <div id="slideshow">
                     <div class="slide-wrapper">
                         <div class="slide">
-                            <span class="slide-number">
-                                <img src={pic1} alt="carousel1" 
-                                
+                            <div class="slide-number" id="slide1" >
+                     
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-number" id="slide2">
+                                {/* <img src={pic2} alt="carousel2" 
+                                // style={{width:'600px', height:'300px'}}
+                                 /> */}
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-number" id="slide3">
+                                {/* <img src={pic5} alt="carousel5"                                 
+                                // style=
+                                // {{width:'600px', height:'300px'}}
+                                 /> */}
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-number" id="slide4">
+                                {/* <img src={pic4} alt="carousel4"                                 
                                 // style={{width:'600px', height:'300px'}} 
+                                /> */}
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-number" id="slide5">
+                                {/* <img src={pic3} alt="carousel3"                                
+                                // style={{width:'600px', height:'300px'}} 
+                                /> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+
+                {/* <div id="slideshow">
+                    <div class="slide-wrapper">
+                        <div class="slide">
+                            <span class="slide-number">
+                                <img src={pic1} alt="carousel1"                                
+                                // style={{width:'600px', height:'300px'}} 
                                 />
                             </span>
                         </div>
                         <div class="slide">
                             <span class="slide-number">
                                 <img src={pic2} alt="carousel2" 
-                                
                                 // style={{width:'600px', height:'300px'}}
                                  />
                             </span>
                         </div>
                         <div class="slide">
                             <span class="slide-number">
-                                <img src={pic3} alt="carousel3" 
-                                
-                                // style={{width:'600px', height:'300px'}} 
-
-                                />
-                            </span>
-                        </div>
-                        <div class="slide">
-                            <span class="slide-number">
-                                <img src={pic4} alt="carousel4" 
-                                
-                                // style={{width:'600px', height:'300px'}} 
-
-
-
-                                />
-                            </span>
-                        </div>
-                        <div class="slide">
-                            <span class="slide-number">
-                                <img src={pic5} alt="carousel5" 
-                                
+                                <img src={pic5} alt="carousel5"                                 
                                 // style=
                                 // {{width:'600px', height:'300px'}}
-
                                  />
                             </span>
                         </div>
+                        <div class="slide">
+                            <span class="slide-number">
+                                <img src={pic4} alt="carousel4"                                 
+                                // style={{width:'600px', height:'300px'}} 
+                                />
+                            </span>
+                        </div>
+                        <div class="slide">
+                            <span class="slide-number">
+                                <img src={pic3} alt="carousel3"                                
+                                // style={{width:'600px', height:'300px'}} 
+                                />
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </div> */}
 
 
-                <div className="homeAuthBttns">
+                <div className="homeAuthBttns home-side-divs">
                     <Link to='/signup' style={{textDecoration: 'none'}}>
                         <button>Sign Up</button>
                     </Link>

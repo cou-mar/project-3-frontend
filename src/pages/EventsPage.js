@@ -114,6 +114,9 @@ const EventsPage = () => {
         events.foundEventsArray.map((singleEvent) => {
           return (
             <div className="eventsContainer">
+            <div className="events-content-div">
+
+                <div>
               <div className="eventsBox"><h2>{singleEvent.title}</h2></div>
               <div className="eventsBox"><h3>{singleEvent.date}</h3></div>
               <div className="eventsBox"><h3>
@@ -121,6 +124,20 @@ const EventsPage = () => {
                 {singleEvent.address.state} {singleEvent.address.zipcode}
               </h3></div>
               <div className="eventsBox"><p>{singleEvent.description}</p></div>
+
+                </div>
+
+
+            <div className="events-button-div">
+
+              <button onClick={()=>navigate(`/see-event/${singleEvent._id}`)}>Details</button>
+
+            </div>
+
+
+
+
+            </div>
             </div>
           );
         })}
@@ -128,12 +145,56 @@ const EventsPage = () => {
         events.komenArray.data.events.results.map((singleEvent) => {
           return (
             <div className="eventsContainer">
+
+
+            <div className="events-content-div">
+
+            <div>
+
               <h2>{singleEvent.name}</h2>
               <h3>{singleEvent.startDate}</h3>
               <h3>
                 {singleEvent.city}, {singleEvent.zipcode}
               </h3>
               <p>{singleEvent.locationDescription}</p>
+
+
+            </div>
+
+
+            <div className="events-button-div">
+
+              <button onClick={()=> {
+                                axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/create-event`, {
+                                        title: singleEvent.name,
+                                        date: singleEvent.startDate,
+                                        address: {
+                                            street: singleEvent.street,
+                                            city: singleEvent.city,
+                                            state: singleEvent.state,
+                                            zipcode: singleEvent.zipcode
+                                            },
+                                        location: {
+                                            latitude: Number(singleEvent.lat),
+                                            longitude: Number(singleEvent.lng)
+                                        }
+
+                                      })
+                                      .then((newEvent) => {
+                                        navigate(`/see-event/${newEvent.data._id}`)
+                                        console.log("Added event", newEvent.data)
+                                      })
+                                      .catch((err) => {console.log("Error adding event:", err)})
+                      }}>Details</button>
+
+
+
+            </div>
+
+
+
+
+            </div>
             </div>
           );
         })}

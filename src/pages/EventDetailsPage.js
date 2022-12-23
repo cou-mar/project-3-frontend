@@ -42,7 +42,8 @@ const EventDetailsPage = () => {
                     <h2>{event.date}</h2>
                     <h3>{event.address.street}, {event.address.city}, {event.address.state} {event.address.zipcode}</h3>
                     <p>{event.description}</p>
-                    <Link to={`/see-event/${event._id}/edit`}>Update</Link>
+                    <button onClick={() => navigate(`/see-event/${event._id}/edit`)}>Update</button>
+                    {/* <Link to={`/see-event/${event._id}/edit`}>Update</Link> */}
                     <div>
                         <button onClick={addToFave}>Add to Favorites</button>
                     </div>
