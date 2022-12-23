@@ -13,6 +13,7 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CreateEventPage from './pages/CreateEventPage';
 import MemoriamPage from './pages/MemoriamPage';
+import Footer from './components/Footer';
 import { AuthContext } from './context/auth.context';
 import { useContext } from 'react';
 
@@ -81,7 +82,7 @@ function App() {
 
       </Routes>
 
-      {/* footer here */}
+      <Footer />
 
     </div>
   );

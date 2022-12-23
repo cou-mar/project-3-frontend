@@ -7,10 +7,14 @@ function Navbar(){
 
     return(
         
-        <nav>
+        <nav className="navbar">
 
-            <Link to='/'>
-                <button>Home</button>
+            {isLoggedIn && (
+                <div className="welcomeUser">Hi, {user.name}!</div>
+            )}
+
+            <Link to='/' style={{textDecoration: 'none'}}>
+                <button className="buttonText">Home</button>
             </Link>
 
             {/* {!isLoggedIn && (
@@ -26,28 +30,26 @@ function Navbar(){
 
             {isLoggedIn && (
                 <>
-                <Link to='/profile'>
+                <Link to='/profile' style={{textDecoration: 'none'}}>
                     <button>Profile</button>
                 </Link>
-                <Link to='/my-events'>
+                <Link to='/my-events' style={{textDecoration: 'none'}}>
                     <button>My Saved Events</button>
                 </Link>
-                <Link to='/create-event'>
+                <Link to='/create-event' style={{textDecoration: 'none'}}>
                     <button>Create Event</button>
                 </Link>
-                <Link to='/see-events'>
+                <Link to='/see-events' style={{textDecoration: 'none'}}>
                     <button>See All Events</button>
                 </Link>
-                <Link to='/in-memoriam'>
+                <Link to='/in-memoriam' style={{textDecoration: 'none'}}>
                     <button>In Memoriam</button>
                 </Link>
                 </>
             )}
 
 <br />
-            {isLoggedIn && (
-                <span>Welcome, {user.name}!</span>
-            )}
+
         </nav>
     )
 }

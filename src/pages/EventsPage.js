@@ -39,7 +39,7 @@ const EventsPage = () => {
     <div>
 
 
-      <div className="map">
+      <div>
         <MapContainer
           className="mapContainer"
           id={"tagMap"}
@@ -109,24 +109,25 @@ const EventsPage = () => {
         </MapContainer>
       </div>
 
+<div>
       {events &&
         events.foundEventsArray.map((singleEvent) => {
           return (
-            <div>
-              <h2>{singleEvent.title}</h2>
-              <h3>{singleEvent.date}</h3>
-              <h3>
+            <span className="eventsContainer">
+              <span className="eventsBox"><h2>{singleEvent.title}</h2></span>
+              <span className="eventsBox"><h3>{singleEvent.date}</h3></span>
+              <span className="eventsBox"><h3>
                 {singleEvent.address.street}, {singleEvent.address.city},{" "}
                 {singleEvent.address.state} {singleEvent.address.zipcode}
-              </h3>
-              <p>{singleEvent.description}</p>
-            </div>
+              </h3></span>
+              <span className="eventsBox"><p>{singleEvent.description}</p></span>
+            </span>
           );
         })}
       {events &&
         events.komenArray.data.events.results.map((singleEvent) => {
           return (
-            <div>
+            <div className="eventsContainer">
               <h2>{singleEvent.name}</h2>
               <h3>{singleEvent.startDate}</h3>
               <h3>
@@ -136,6 +137,7 @@ const EventsPage = () => {
             </div>
           );
         })}
+        </div>
     </div>
   );
 };

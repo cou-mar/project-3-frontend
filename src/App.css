@@ -1,14 +1,137 @@
 *{
   margin: 0;
+  color: brown;
+  /* font-weight: 700; */
 }
 
-/* .logoutBttn{
-  float: right;
+.welcomeUser{
+  font-style: oblique;
+}
+
+.footer{
+  font-style: oblique;
+  text-align: center;
+  color: peachpuff;
+  text-shadow: white;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+}
+
+nav button{
+  margin: 20px 20px 0;
+}
+
+.buttonText{
+  text-decoration: none;
+}
+
+button {
+  text-decoration: none;
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #f18db6;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FFBBCC 0%, #FFDDCC  51%, #FFEECC  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fdb6d9;
+  text-decoration: none;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* body{
+  background-repeat: no-repeat;
+  height: 100vh;
 } */
+
+body::after{
+  content: "";
+  background: url(./background.png);
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+#slideshow {
+  /* text-align: center; */
+  overflow: hidden;
+  height: 400px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: 2912px;
+  animation: slide 18s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 670px;
+  width: 376px;
+}
+
+/* .slide:nth-child(1) {
+  background: #D93B65;
+}
+
+.slide:nth-child(2) {
+  background: #037E8C;
+}
+
+.slide:nth-child(3) {
+  background: #36BF66;
+}
+
+.slide:nth-child(4) {
+  background: #D9D055;
+}
+
+.slide-number {
+  color: #000;
+  text-align: center;
+  font-size: 10em;
+} */
+
+@keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -728px;}
+  50% {margin-left: -728px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -2184px;}
+  90% {margin-left: -2184px;}
+}
 
 .homeTitle{
   text-align: center;
   margin: 50px;
+  margin-top: 80px;
 }
 
 .homeContainer{
@@ -20,6 +143,7 @@
 .homeContainer h3{
   margin: 20px;
   padding: 20px;
+  width: 300px;
 }
 
 .homeAuthBttns{
@@ -61,6 +185,9 @@
   padding: 15px 25px;
   margin: 20px;
   border-radius: 5px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 .profileContainer{
@@ -71,9 +198,9 @@
 }
 
 .profileSlideshow{
-  border: 2px solid;
+  /* border: 2px solid; */
   margin: 50px;
-  padding: 50px;
+  /* padding: 50px; */
   width: 60vw;
   margin-left: auto;
   margin-right: auto;
@@ -96,6 +223,39 @@
 .createContainer{
   text-align: center;
   line-height: 2;
+  margin-top: 30px;
+}
+
+/* .createContainer button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+input{
+  border: none;
+  border-radius: 7px;
+  background-color: #FFDDCC;
+}
+
+input[type=text]:focus{
+  outline: none;
+  border: 3px solid #FFDDCC;
+  background-color: white;
+  transition: 1s;
+}
+
+#description{
+  border: none;
+  border-radius: 7px;
+  background-color: #FFDDCC;
+}
+
+#description:focus{
+  outline: none;
+  border: 3px solid #FFDDCC;
+  transition: 1s;
+  background-color: white;
 }
 
 .updateContainer{
@@ -109,18 +269,58 @@
   line-height: 2;
 }
 
-/* MapContainer{
-} */
-
-/* .map{
+.mapContainer{
   margin-left: auto;
   margin-right: auto;
-} */
+  margin-top: 30px;
+}
+
+.eventsContainer{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  width:100px;
+  float: left;
+  /* margin-right: 20px; */
+}
+
+.eventsBox{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  inline-size: 100px;
+  overflow-wrap: normal;
+  margin: 50px;
+}
 
 .memoriamContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -380px;
+  margin-top: 50px;
+}
+
+.memoriamImg{
   text-align: center;
   margin: 50px;
   line-height: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memoriamImg img{
+  border-radius: 10%;
+  box-shadow: 0 0 25px 15px #fff;
+}
+
+.memoriamText{
+  line-height: 1.5;
+  width: 400px;
+  margin-right: 50px;
+  text-align: justify;
 }
 
 /* .App {
