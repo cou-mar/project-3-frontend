@@ -118,9 +118,9 @@ const UpdateEventPage = () => {
                 {/* <input placeholder="Half marathon to raise funds for breast cancer awareness." type="text" name="description" onChange={updateDescription} /> */}
                 <textarea placeholder="Half marathon to raise funds for breast cancer awareness." name="description" id="description" onChange={updateDescription} value={description} cols="30" rows="5"></textarea>
             <br />
-                <button>Update Event</button>
-                <Link>
-                    <button onClick={deleteFunction}>Delete Event</button>
+                <button className="authBttn">Update Event</button>
+                <Link style={{textDecoration: 'none'}}>
+                    <button className="authBttn" onClick={deleteFunction}>Delete Event</button>
                 </Link>
             </form>
             
