@@ -18,11 +18,11 @@ const FavoritesPage = () => {
             .catch(err => console.log(err))
     }, []);
 
-    const deleteFav = (id) => {
+    const deleteFave = (id) => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/favorite/${id}/delete`)
         .then((deleted) => {
-            let newFavsArray = faves.filter((fav) => fav._id !== deleted.data._id)
-            setFaves(newFavsArray)
+            let newFavesArray = faves.filter((fave) => fave._id !== deleted.data._id)
+            setFaves(newFavesArray)
             console.log("We deleted this favorite:", deleted)
         })
         .catch((err) => {
@@ -31,19 +31,21 @@ const FavoritesPage = () => {
     }
 
     return (
-        <div>
+        <div className="savedEventsContainer">
+            <br />
             <h1>My Saved Events</h1>
-
+            <br />
             <div>
                 {faves.map((singleFave) => {
                     return(
                         <div>
+                            <h3>{singleFave.myEvent.title}</h3>
+                            <h5>{singleFave.myEvent.date}</h5>
+                            <h5>{singleFave.myEvent.address.city}, {singleFave.myEvent.address.state}</h5>
 
-                        <h3>{singleFave.myEvent.title}</h3>
-
-                        <button onClick={()=>deleteFav(singleFave._id)}
-                        >Delete Favorite</button>
-
+                            <button onClick={()=>deleteFave(singleFave._id)}
+                            >Delete Favorite</button>
+                            <br />
                         </div>
                 )})
                 }

@@ -153,8 +153,6 @@ body::after{
 
 }
 
-
-
 .slide-number img {
   /* align-self: center; */
   height: 40vh;
@@ -347,13 +345,11 @@ input[type=text]:focus{
 }
 
 .eventsContainer{
-
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   /* flex-flow: wrap; */
   columns: 5 auto;
-
   /* width:100px;
   float: left; */
   /* margin-right: 20px; */
@@ -393,9 +389,13 @@ input[type=text]:focus{
   margin-left: auto;
   margin-right: auto;
   /* columns: 5 auto */
-  
   /* flex: 1; */
   /* flex-flow: wrap; */
+}
+
+.savedEventsContainer{
+  margin-top: 50px;
+  margin-left: 20vw;
 }
 
 .memoriamContainer{
